@@ -47,22 +47,32 @@
 
 ```text
 Hardware/
-├── CarGo.c / .h          # 小车运动控制
-├── CarTasks.c            # 小车任务及控制逻辑
-├── Motor.c / .h          # 电机驱动
-├── PWM.c / .h            # PWM 控制
-├── Track_Init.c / .h     # 循迹模块初始化
-├── TrackTask.c / .h      # 循迹控制逻辑
-├── Ultrasonic.c / .h     # 超声波测距
-├── Servo_PWM.c / .h      # 舵机 PWM 驱动
-├── ServoTask.c / .h      # 舵机相关任务
-├── Serial.c / .h         # 蓝牙串口通信
-├── OLED.c / .h           # OLED 驱动（江协）
-├── Key.c / .h            # 按键（主要用于调试）
-└── LED.c / .h            # LED（主要用于调试）
+│
+├── OLED/
+│   ├── OLED.c / .h           # OLED 显示驱动*
+│   └── OLED_Font.h           # OLED 字库*
+│
+├── 车轮/
+│   ├── CarGo.c / .h          # 小车运动控制
+│   ├── Motor.c / .h          # 电机驱动
+│   └── PWM.c / .h            # 电机 PWM 调速
+│
+├── 蓝牙接收发送/
+│   ├── Serial.c / .h         # 串口通信*
+│   └── ShowPacket.c / .h     # 数据包处理与通信
+│
+├── 超声波测距模块/
+│   ├── Ultrasonic.c / .h     # 超声波测距
+│   ├── Servo_PWM.c / .h      # 舵机 PWM 控制
+│   └── ServoTask.c / .h      # 舵机扫描及避障相关控制
+│
+└── 自动循迹/
+    ├── Track_Init.c / .h     # 循迹传感器初始化
+    └── TrackTask.c / .h      # 自动循迹控制逻辑
 ```
 
 随着项目继续优化，该目录结构可能发生调整。
+*为重点参考江协代码的部分。
 
 ---
 
@@ -154,7 +164,6 @@ Hardware/
 **当前状态：开发 / 调试中**
 
 项目尚未作为最终版本完成，代码结构、接口以及控制策略均可能继续调整。
-
 后续将持续更新：
 
 - 实际运行视频
@@ -178,7 +187,7 @@ Hardware/
 
 ## ⚖️ Copyright
 
-Copyright (c) 2026. All rights reserved.
+Copyright (c) 2026 ShuShanBai. All rights reserved.
 
 本仓库主要用于个人学习记录、技术交流及求职作品展示。
 除另有说明外，本人原创代码及项目资料未授权进行复制、重新发布、修改或用于其他项目。第三方组件遵循其各自的许可证及版权声明。
